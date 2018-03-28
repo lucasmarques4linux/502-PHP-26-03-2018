@@ -90,3 +90,45 @@ echo "<br>";
 echo $intervalo->format('%r%a dias de intervalo');
 
 echo "<hr>";
+
+var_dump($dataNasc > $dataAtual);
+var_dump($dataNasc < $dataAtual);
+var_dump($dataNasc == $dataAtual);
+var_dump($dataNasc != $dataAtual);
+
+echo "<hr>";
+
+$data = new DateTime('2018-03-28');
+var_dump($data > $dataAtual);
+var_dump($data < $dataAtual);
+var_dump($data == $dataAtual);
+var_dump($data != $dataAtual);
+
+echo "<hr>";
+
+print_r($data);
+$data->add(new DateInterval('P4D'));
+print_r($data);
+
+echo "<hr>";
+
+print_r($data);
+$data->sub(new DateInterval('P7D'));
+print_r($data);
+print_r($data->format('l'));
+
+echo "<hr>";
+
+date_default_timezone_set('America/Sao_Paulo');
+$dataSP = new DateTime();
+echo $dataSP->format('d/m/Y H:i:s');
+echo "<br>";
+date_default_timezone_set('Asia/Tokyo');
+$dataTokyo = new DateTime();
+echo $dataTokyo->format('d/m/Y H:i:s');
+
+echo "<hr>";
+
+setlocale(LC_ALL, 'pt_BR.utf8');
+
+echo  strftime("%A , %e de %B de %Y");
