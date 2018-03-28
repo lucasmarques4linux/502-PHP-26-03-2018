@@ -6,27 +6,30 @@ use PHPUnit\Framework\TestCase;
 
 class EstoqueTest extends TestCase
 {
+	private $estoque;
+	public function setUp()
+	{
+		$this->estoque = new Estoque();
+	}
 	public function testAddItem()
 	{
 		$item = 'blusa azul';
 		$qtd  = 5;
 
-		$estoque = new Estoque();
-		$estoque->add($item,$qtd);
+		$this->estoque->add($item,$qtd);
 
-		$this->assertSame($qtd,$estoque->get($item));
+		$this->assertSame($qtd,$this->estoque->get($item));
 	}
 
 	public function testSomaQuantidades()
 	{
 		$item = 'blusa azul';
 
-		$estoque = new Estoque();
-		$estoque->add($item,1);
-		$estoque->add($item,5);
-		$estoque->add($item,10);
+		$this->estoque->add($item,1);
+		$this->estoque->add($item,5);
+		$this->estoque->add($item,10);
 
-		$this->assertSame(16,$estoque->get($item));
+		$this->assertSame(16,$this->estoque->get($item));
 	}
 
 	/**
@@ -35,7 +38,19 @@ class EstoqueTest extends TestCase
 	 */
 	public function testItemInvalido()
 	{
-		$estoque = new Estoque();
-		$estoque->get('blusa X');
+		$this->estoque->get('blusa X');
+	}
+
+	public function testRemoveQuantidade()
+	{
+		$item = "blusa Y";
+		$this->estoque->add($item,10);
+		$this->estoque->add($item,3);
+		$this->estoque->add($item,8);
+
+		$this->estoque->remove($item,15);
+		$this->assertSame(6,$this->estoque->get($item));
+		$this->estoque->remove($item,3);
+		$this->assertSame(3,$this->estoque->get($item));
 	}
 }
