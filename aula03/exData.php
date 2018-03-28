@@ -18,5 +18,8 @@ $pessoas = [
 		'data_nasc' => '13/07/1972',
 	],
 ];
-echo "<pre>";
-print_r($pessoas);
+
+// Dado um array com 4 pessoas, quero que me mostrem:
+// o mais velho
+// o mais novo
+// diferença de idade entre eles em dias.
