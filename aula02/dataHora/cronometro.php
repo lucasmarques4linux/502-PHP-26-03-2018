@@ -8,7 +8,7 @@ $start = cronometro();
 
 $a = [];
 for ($i=0; $i < 1000000; $i++) { 
-	$a[] = pow($i,10);
+	$a[] = pow(pow($i,5),5);
 }
 
 $end = cronometro();
