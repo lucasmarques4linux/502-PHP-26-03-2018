@@ -67,5 +67,26 @@ echo $intervalo->format("%D dias e %H horas e %I minutos de intervalo");
 
 echo "<hr>";
 
+$dataAtual = new DateTime();
+$dataNasc = new DateTime('1993-07-25');
+$intervalo = $dataNasc->diff($dataAtual);
+
+echo $dataAtual->format('d/m/y');
 echo "<br>";
-echo $intervalo->format('%a dias de intervalo');
+echo $dataNasc->format('d/m/y');
+echo "<br>";
+echo $intervalo->format('%r%a dias de intervalo');
+
+echo "<hr>";
+
+$dataAtual = new DateTime();
+$dataNasc = new DateTime('1993-07-25');
+$intervalo = $dataAtual->diff($dataNasc);
+
+echo $dataAtual->format('d/m/y');
+echo "<br>";
+echo $dataNasc->format('d/m/y');
+echo "<br>";
+echo $intervalo->format('%r%a dias de intervalo');
+
+echo "<hr>";
