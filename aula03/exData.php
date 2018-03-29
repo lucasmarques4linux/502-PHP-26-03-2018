@@ -49,5 +49,5 @@ echo "Mais Velho: " . $velho['nome'];
 
 echo "<hr>";
 
-$diff = $velho['data_nasc']->diff($novo['data_nasc']);
-echo $diff->format('%r%a dias de diferença');
+$diferenca = $velho['data_nasc']->diff($novo['data_nasc']);
+echo $diferenca->format('%r%a dias de diferença');
