@@ -1,5 +1,4 @@
 <form method="POST" enctype="multipart/form-data">
-<!-- <input type="hidden" name="MAX_FILE_SIZE" value=""> -->
 	<p>Arquivo: <input type="file" name="arquivo"></p>
 	<input type="submit" value="Enviar">
 </form>
@@ -16,7 +15,7 @@ if ($_POST || $_FILES) {
 
 		if ($movido) {
 			echo "Salvo com Sucesso!! <hr>";
-			echo "<img src='fotos/{$nome}' height='42' width='42'> ";
+			echo "<object data='fotos/{$nome}'type='application/pdf'></object>";
 		}
 	}
 }
