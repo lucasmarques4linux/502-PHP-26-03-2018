@@ -46,5 +46,5 @@ rename('copia.txt',	'copia-arq.txt');
 
 // Buscando arquivos;
 
-$arqs = glob('*.txt');
+$arqs = glob('../aula03/*.php');
 print_r($arqs);
