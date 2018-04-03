@@ -1,16 +1,13 @@
-<?php 
+<?php
 
 $dom = new DOMDocument();
 $dom->load('../apostilas.xml');
 
-// Localizando elemento
+// Localizando o elemento apostila
 $apostilas = $dom->getElementsByTagName('apostila');
 
-// Alterando Atributo existente
-$apostilas->item(0)->setAttribute('versao','2.0');
-
-//Adicionando Atributo novo
-$apostilas->item(0)->setAttribute('ano','2018');
+// Removendo atributo
+$apostilas->item(0)->removeAttribute('versao');
 
 // Salvo meu arquivo xml
 $dom->save('../apostilas.xml');
@@ -20,4 +17,3 @@ header('Content-type: text/xml');
 
 // exibo o xml
 echo $dom->saveXML();
-
