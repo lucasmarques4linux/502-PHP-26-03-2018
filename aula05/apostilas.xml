@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <apostilas>
-	<apostila versao="1.0">
+	<apostila versao="2.0" ano="2018">
 		<titulo>Dominando PHP</titulo>
 		<topicos>
 			<topico>Introdução</topico>
 			<topico>Intermediário</topico>
 			<topico>Avançado</topico>
 		</topicos>
-	<paginas>140</paginas><paginas>140</paginas><capitulos><capitulo>1 - Inicio</capitulo><capitulo>2 - Preparando Ambiente</capitulo><capitulo>3 - Lógica de programação</capitulo></capitulos></apostila>
-	<apostila versao="1.0">
+	<capitulos><capitulo>1 - Inicio</capitulo><capitulo>2 - Preparando Ambiente</capitulo><capitulo>3 - Lógica de programação</capitulo></capitulos></apostila>
+	<apostila versao="3.0">
 		<titulo>Java</titulo>
 		<topicos>
 			<topico>Iniciando com Java</topico>
 			<topico>Intermediário</topico>
 			<topico>Avançado</topico>
 		</topicos>
-	<paginas>138</paginas><paginas>138</paginas></apostila>
-	<apostila versao="2.0">
+	</apostila>
+	<apostila>
 		<titulo>Javascript</titulo>
 		<topicos>
 			<topico>Introdução</topico>
 			<topico>Intermediário</topico>
 			<topico>Avançado</topico>
 		</topicos>
-	<paginas>162</paginas><paginas>162</paginas></apostila>
+	<attributes/></apostila>
 </apostilas>
