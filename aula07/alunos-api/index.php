@@ -38,8 +38,42 @@ switch ($method) {
 		}
 		
 		break;
-	
+
+	case 'POST':
+		$dados = file_get_contents("php://input");
+		$dados = json_decode($dados,true);
+
+		$result = $alunos->insert($dados);
+
+			header('HTTP/1.1 201');
+			header('Content-type:application/json; charset=UTF-8');
+			echo json_encode([
+					"status" => "ok",
+					"data"   => $result,
+					"message"=> ""
+				]);
+		break;
+
+	case 'PUT':
+		$dados = file_get_contents("php://input");
+		$dados = json_decode($dados,true);
+
+		$result = $alunos->update($dados);
+
+			header('HTTP/1.1 200');
+			header('Content-type:application/json; charset=UTF-8');
+			echo json_encode([
+					"status" => "ok",
+					"data"   => $result,
+					"message"=> ""
+				]);
+		break;
+
+	case 'DELETE':
+		
+		break;
+
 	default:
-		# code...
+		header('HTTP/1.1 404');
 		break;
 }

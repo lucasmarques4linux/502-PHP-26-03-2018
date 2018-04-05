@@ -24,4 +24,27 @@ class Alunos
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public function insert(array $data)
+	{
+		$sql = "INSERT INTO tb_alunos(nome,email) VALUES (:nome,:email)";
+
+		$stmt = $this->con->prepare($sql);
+		$stmt->bindValue(':nome',$data['nome']);
+		$stmt->bindValue(':email',$data['email']);
+
+		return $stmt->execute();
+	}
+
+	public function update(array $data)
+	{
+		$sql = "UPDATE tb_alunos SET nome=:nome,email=:email WHERE id=:id";
+
+		$stmt = $this->con->prepare($sql);
+		$stmt->bindValue(':nome',$data['nome']);
+		$stmt->bindValue(':email',$data['email']);
+		$stmt->bindValue(':id',$data['id']);
+
+		return $stmt->execute();
+	}
 }
