@@ -6,6 +6,9 @@ $alunos = new Alunos();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
+$dados = file_get_contents("php://input");
+$dados = json_decode($dados,true);
+header('Content-type:application/json; charset=UTF-8');
 
 switch ($method) {
 	case 'GET':
@@ -20,7 +23,6 @@ switch ($method) {
 		if ($result) 
 		{
 			header('HTTP/1.1 200');
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "ok",
 					"data"   => $result,
@@ -29,7 +31,6 @@ switch ($method) {
 		} else 
 		{
 			header('HTTP/1.1 200'); // 204 No Content
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "erro",
 					"data"   => "",
@@ -39,15 +40,12 @@ switch ($method) {
 		
 		break;
 
-	case 'POST':
-		$dados = file_get_contents("php://input");
-		$dados = json_decode($dados,true);
+	case 'POST':	
 
 		$result = $alunos->insert($dados);
 
 		if ($result) {
 			header('HTTP/1.1 201');
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "ok",
 					"data"   => "",
@@ -55,7 +53,6 @@ switch ($method) {
 				]);
 		} else {
 			header('HTTP/1.1 400');
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "erro",
 					"data"   => "",
@@ -65,14 +62,11 @@ switch ($method) {
 		break;
 
 	case 'PUT':
-		$dados = file_get_contents("php://input");
-		$dados = json_decode($dados,true);
 
 		$result = $alunos->update($dados);
 
 		if ($result) {
 			header('HTTP/1.1 201');
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "ok",
 					"data"   => "",
@@ -80,7 +74,6 @@ switch ($method) {
 				]);
 		} else {
 			header('HTTP/1.1 400');
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "erro",
 					"data"   => "",
@@ -90,14 +83,10 @@ switch ($method) {
 		break;
 
 	case 'DELETE':
-		$dados = file_get_contents("php://input");
-		$dados = json_decode($dados,true);
-
 		$result = $alunos->delete($dados);
 
 		if ($result) {
-			header('HTTP/1.1 201');
-			header('Content-type:application/json; charset=UTF-8');
+			header('HTTP/1.1 201');			
 			echo json_encode([
 					"status" => "ok",
 					"data"   => "",
@@ -105,7 +94,6 @@ switch ($method) {
 				]);
 		} else {
 			header('HTTP/1.1 400');
-			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "erro",
 					"data"   => "",
