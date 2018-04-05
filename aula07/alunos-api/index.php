@@ -45,13 +45,23 @@ switch ($method) {
 
 		$result = $alunos->insert($dados);
 
+		if ($result) {
 			header('HTTP/1.1 201');
 			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "ok",
-					"data"   => $result,
+					"data"   => "",
+					"message"=> "Inserido Com Sucesso"
+				]);
+		} else {
+			header('HTTP/1.1 400');
+			header('Content-type:application/json; charset=UTF-8');
+			echo json_encode([
+					"status" => "erro",
+					"data"   => "",
 					"message"=> ""
 				]);
+		}
 		break;
 
 	case 'PUT':
@@ -60,17 +70,48 @@ switch ($method) {
 
 		$result = $alunos->update($dados);
 
-			header('HTTP/1.1 200');
+		if ($result) {
+			header('HTTP/1.1 201');
 			header('Content-type:application/json; charset=UTF-8');
 			echo json_encode([
 					"status" => "ok",
-					"data"   => $result,
+					"data"   => "",
+					"message"=> "Inserido Com Sucesso"
+				]);
+		} else {
+			header('HTTP/1.1 400');
+			header('Content-type:application/json; charset=UTF-8');
+			echo json_encode([
+					"status" => "erro",
+					"data"   => "",
 					"message"=> ""
 				]);
+		}
 		break;
 
 	case 'DELETE':
-		
+		$dados = file_get_contents("php://input");
+		$dados = json_decode($dados,true);
+
+		$result = $alunos->delete($dados);
+
+		if ($result) {
+			header('HTTP/1.1 201');
+			header('Content-type:application/json; charset=UTF-8');
+			echo json_encode([
+					"status" => "ok",
+					"data"   => "",
+					"message"=> "Deletado Com Sucesso"
+				]);
+		} else {
+			header('HTTP/1.1 400');
+			header('Content-type:application/json; charset=UTF-8');
+			echo json_encode([
+					"status" => "erro",
+					"data"   => "",
+					"message"=> ""
+				]);
+		}
 		break;
 
 	default:

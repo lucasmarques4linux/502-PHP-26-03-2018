@@ -47,4 +47,14 @@ class Alunos
 
 		return $stmt->execute();
 	}
+
+	public function delete(array $data)
+	{
+		$sql = "DELETE FROM tb_alunos WHERE id=:id";
+
+		$stmt = $this->con->prepare($sql);
+		$stmt->bindValue(':id',$data['id']);
+
+		return $stmt->execute();
+	}
 }
