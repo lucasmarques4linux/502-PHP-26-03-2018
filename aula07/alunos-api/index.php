@@ -42,7 +42,9 @@ switch ($method) {
 
 	case 'POST':	
 
-		$result = $alunos->insert($dados);
+		if (filter_var($dados['email'],FILTER_VALIDATE_EMAIL)) {
+			$result = $alunos->insert($dados);
+		}		
 
 		if ($result) {
 			header('HTTP/1.1 201');
