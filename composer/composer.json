@@ -1,0 +1,19 @@
+{
+    "name": "lucas/composer",
+    "description": "Iniciando com o Composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Lucas Marques",
+            "email": "lucasmarques73@hotmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lucas\\": "src/"
+        }
+    }
+}
